@@ -54,7 +54,7 @@ async function run(pw,silent){
   err.textContent="";go.disabled=true;go.textContent="Åpner …";
   try{
     var html=await open(pw);
-    sessionStorage.setItem("sg-pw",pw);
+    
     document.open();document.write(html);document.close();
   }catch(e){
     sessionStorage.removeItem("sg-pw");
@@ -63,7 +63,7 @@ async function run(pw,silent){
   }
 }
 document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();run(document.getElementById("pw").value,false)});
-var saved=sessionStorage.getItem("sg-pw");if(saved)run(saved,true);
+sessionStorage.removeItem("sg-pw");
 })();
 </script>
 </body>
